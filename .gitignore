@@ -1,0 +1,12 @@
+# Editor
+.idea
+
+# Config
+# Uncomment bellow extension later
+#.env
+
+# Log
+.log
+
+client/node_modules
+server/node_modules
