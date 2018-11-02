@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const validateXML = require("../controllers/messagesController");
+const messageController = require("../controllers/messageController");
 
 router.get("/", (req, res) => {
   res.send("Yahoo validated!!!!");
 });
-router.get("/messages", validateXML.validate);
+router.get("/messages", messageController.addMessage);
+router.post("/messages", messageController.addMessage);
 
 module.exports = router;

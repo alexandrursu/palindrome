@@ -17,6 +17,7 @@
     "body-parser": "^1.18.3",
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
+    "is-palindrome": "^0.3.0",
     "mongoose": "^5.3.7",
     "nodemon": "^1.18.5"
   },

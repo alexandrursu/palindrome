@@ -2,9 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const fs = require("fs");
+const router = require("./routes/messages");
 
 const app = express();
-const router = require("./routes/messages");
 const [major, minor] = process.versions.node.split(".").map(parseFloat);
 
 // Cross domain configuration
