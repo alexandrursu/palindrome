@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import axios from "axios";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
@@ -19,9 +20,6 @@ const styles = theme => ({
     height: "100vh",
     alignContent: "center",
     justifyContent: "center"
-  },
-  demo: {
-    backgroundColor: theme.palette.background.paper
   },
   title: {
     margin: `${theme.spacing.unit * 4}px 0 ${theme.spacing.unit * 2}px`
@@ -46,6 +44,10 @@ const styles = theme => ({
     fontSize: "1.17em",
     fontWeight: "bold"
   },
+  listContainer: {
+    maxHeight: "400px",
+    overflow: "auto"
+  },
   listFooter: {
     display: "flex",
     alignContent: "center",
@@ -67,15 +69,28 @@ const styles = theme => ({
 });
 
 class InteractiveList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+  }
   state = {
     message: "",
-    messagesArray: [
-      "First dsfj djshf dsjkfh dsjkfh sdjfh dshjdsh fksjdhf ",
-      "second",
-      "third",
-      "fourth"
-    ]
+    messagesArray: []
   };
+  //TODO: Check in what lifecycle to make initial request and maybe to use async/await
+  componentWillMount() {
+    axios
+      .get("http://localhost:3001/messages")
+      .then(response => {
+        console.log(response);
+        this.setState({
+          messagesArray: response.data
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
 
   handleChange = name => event => {
     this.setState({
@@ -88,12 +103,20 @@ class InteractiveList extends React.Component {
     console.log(this.state.message);
     axios
       .post("http://localhost:3001/messages", { message: this.state.message })
-      .then(function(response) {
-        console.log(response);
+      .then(response => {
+        this.setState({
+          messagesArray: response.data
+        });
+        this.scrollToDomRef();
       })
       .catch(function(error) {
         console.log(error);
       });
+  };
+
+  scrollToDomRef = () => {
+    const myDomNode = ReactDOM.findDOMNode(this.myRef.current);
+    myDomNode.scrollIntoView();
   };
 
   render() {
@@ -104,36 +127,40 @@ class InteractiveList extends React.Component {
         <Grid container className={classes.middle}>
           <Grid item xs={12} md={4} className={classes.list}>
             <div className={classes.listHeader}>Palindrome Checker</div>
-            <div className={classes.demo}>
-              <List>
-                {this.state.messagesArray.map((message, i) => {
-                  return (
-                    <div>
-                      {i === 0 ? "" : <Divider className={classes.divider} />}
-                      <ListItem>
-                        <ListItemText
-                          primary={message}
-                          className={classes.listItem}
-                        />
-                        <div className={classes.actions}>
-                          <IconButton aria-label="Select">
-                            <MoreHoriz />
-                          </IconButton>
-                          <IconButton aria-label="Delete">
-                            <DeleteIcon />
-                          </IconButton>
-                        </div>
-                      </ListItem>
-                    </div>
-                  );
-                })}
-              </List>
-            </div>
+            <List className={classes.listContainer}>
+              {this.state.messagesArray.map((item, i) => {
+                return (
+                  <div>
+                    {i === 0 ? "" : <Divider className={classes.divider} />}
+                    <ListItem
+                      ref={
+                        i === this.state.messagesArray.length - 1
+                          ? this.myRef
+                          : ""
+                      }
+                    >
+                      <ListItemText
+                        primary={item.message}
+                        className={classes.listItem}
+                      />
+                      <div className={classes.actions}>
+                        {i}
+                        <IconButton aria-label="Select">
+                          <MoreHoriz />
+                        </IconButton>
+                        <IconButton aria-label="Delete">
+                          <DeleteIcon />
+                        </IconButton>
+                      </div>
+                    </ListItem>
+                  </div>
+                );
+              })}
+            </List>
             <div className={classes.listFooter}>
               <TextField
                 id="add"
                 label="Submit new message"
-                defaultValue="Hello World"
                 className={classes.textField}
                 onChange={this.handleChange("message")}
                 value={this.state.message}

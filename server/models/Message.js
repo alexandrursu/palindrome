@@ -3,7 +3,7 @@ var isPalindrome = require("is-palindrome");
 var Schema = mongoose.Schema;
 
 var MessageSchema = new Schema({
-  text: {
+  message: {
     type: String,
     required: "Please enter a message!"
   },
@@ -13,7 +13,8 @@ var MessageSchema = new Schema({
 });
 
 MessageSchema.pre("save", function(next) {
-  this.isPalindrome = isPalindrome(this.name);
+  this.isPalindrome = isPalindrome(this.message);
+  console.log(isPalindrome(this.message));
   next();
 });
 
