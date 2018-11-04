@@ -3,9 +3,9 @@ Live url:
 # Project Architecture.
 
 # Sequence diagram of the use cases' interactions.
-![alt text](https://alexandrursu.github.io/palindrome-swagger/list-sequence.png "List messages diagram")
 ![alt text](https://alexandrursu.github.io/palindrome-swagger/add-sequence.png "Add message diagram")
 ![alt text](https://alexandrursu.github.io/palindrome-swagger/details-sequence.png "Get details diagram")
+![alt text](https://alexandrursu.github.io/palindrome-swagger/list-sequence.png "List messages diagram")
 ![alt text](https://alexandrursu.github.io/palindrome-swagger/delete-sequence.png "Delete message diagram")
 
 # How to: build, deploy and access the app.
