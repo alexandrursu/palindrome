@@ -6,7 +6,32 @@ const router = require("./routes/messages");
 
 const app = express();
 const [major, minor] = process.versions.node.split(".").map(parseFloat);
+const expressSwagger = require("express-swagger-generator")(app);
 
+let options = {
+  swaggerDefinition: {
+    info: {
+      description: "This is a sample server",
+      title: "Swagger",
+      version: "1.0.0"
+    },
+    host: "localhost:3001",
+    basePath: "/",
+    produces: ["application/json", "application/xml"],
+    schemes: ["http", "https"],
+    securityDefinitions: {
+      JWT: {
+        type: "apiKey",
+        in: "header",
+        name: "Authorization",
+        description: ""
+      }
+    }
+  },
+  basedir: __dirname, //app absolute path
+  files: ["./routes/**/*.js"] //Path to the API handle folder
+};
+expressSwagger(options);
 // Cross domain configuration
 let allowCrossDomain = (req, res, next) => {
   res.header("Access-Control-Allow-Origin", req.headers.origin);

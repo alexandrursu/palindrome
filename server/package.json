@@ -19,9 +19,12 @@
     "express": "^4.16.4",
     "is-palindrome": "^0.3.0",
     "mongoose": "^5.3.7",
-    "nodemon": "^1.18.5"
+    "nodemon": "^1.18.5",
+    "swagger-ui": "^3.19.4",
+    "swagger-ui-express": "^4.0.1"
   },
   "devDependencies": {
+    "express-swagger-generator": "^1.1.10",
     "prettier": "^1.14.3"
   }
 }
