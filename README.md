@@ -6,7 +6,7 @@ The project is structured as following:
 - SERVER: REST API build using NodeJS/Express server.
 - DB: MongoDB is used to store the messages.
 
-# Sequence diagram of the use cases' interactions.
+## Sequence diagram of the use cases' interactions.
 ![alt text](https://alexandrursu.github.io/palindrome-swagger/new-sequence.png "Add message diagram")
 ![alt text](https://alexandrursu.github.io/palindrome-swagger/details-sequence.png "Get details diagram")
 ![alt text](https://alexandrursu.github.io/palindrome-swagger/list-sequence.png "List messages diagram")
