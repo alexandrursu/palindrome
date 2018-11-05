@@ -1,4 +1,4 @@
-# APP LIVE DEMO
+## APP LIVE DEMO
 Live url: [http://thejs.ca/](http://thejs.ca/)
 
 ## Project Architecture.
@@ -36,7 +36,7 @@ Client is currently configured to use API from `http://api.thejs.ca/messages`, y
 The application is deployed to a Cloud Provider (DigitalOcean) using Docker and DigitalOcean Droplets. 
 
 ## MongoDB 
-Database is hosted on mLab cloud MongoDB service. Connection url `mongodb://root:Palindrome1@ds125293.mlab.com:25293/palindrome` is stored in `variables.env` file which was committed for *demo purpouse* only. 
+Database is hosted on mLab cloud MongoDB service. Connection url `mongodb://root:Palindrome1@ds125293.mlab.com:25293/palindrome` is stored in `variables.env` file which was committed for **demo purpouse** only. 
 In real world scenario this file would be added only on server hosting or configs would be defined in the hosting environment variables.  
 
 ## API Documentation
