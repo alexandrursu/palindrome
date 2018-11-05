@@ -11,8 +11,6 @@ services:
       - API_HOST=http://localhost:3001
     ports:
       - "3001:3001"
-    volumes:
-      - ./server:/Users/ui/Documents/Projects/palindrome/server
     command: "npm start"
 
 
@@ -26,8 +24,6 @@ services:
       - API_HOST=http://localhost:3000
     ports:
       - "3000:3000"
-    volumes:
-      - ./client/src:/Users/ui/Documents/Projects/palindrome/client/src
     links:
       - server
     command: "npm start"

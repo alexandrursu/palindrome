@@ -1,5 +1,6 @@
 # APP LIVE DEMO
-Live url:
+Live url: [http://thejs.ca/](http://thejs.ca/)
+
 ## Project Architecture.
 The project is structured as following:
 - **CLIENT**: build with **ReactJS** and **Material UI** React components.
@@ -13,7 +14,25 @@ The project is structured as following:
 ![alt text](https://alexandrursu.github.io/palindrome-swagger/list-sequence.png "List messages diagram")
 ![alt text](https://alexandrursu.github.io/palindrome-swagger/delete-sequence.png "Delete message diagram")
 
-## How to: build, deploy and access the app.
+## How to build.
+There are 2 options for building current project:
+1. NPM Build:
+- Run `npm install -g concurrently`
+- Run `npm start`
+
+_or_
+
+2. Docker compose
+- Run `docker-compose up`
+
+In both cases:
+- client will be served at http://localhost:3000
+- server will be served at http://localhost:3001
+
+> Note: Client is currently configured to use API from `http://api.thejs.ca/messages`, you will have to change API hosting to `localhost:3001/messages` in `clinet/src/constants.js` when you're running project locally. 
+
+## Docker + DigitalOcean
+The application is deployed to a Cloud Provider (DigitalOcean) using Docker and DigitalOcean Droplets. 
 
 ## API Documentation
 Link to the documentation: https://alexandrursu.github.io/palindrome-swagger/

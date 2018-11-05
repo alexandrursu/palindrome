@@ -1,3 +1,3 @@
 export const API = {
-  MESSAGES: "http://localhost:3001/messages"
+  MESSAGES: "http://api.thejs.ca/messages"
 };

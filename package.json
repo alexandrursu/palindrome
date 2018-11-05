@@ -1,0 +1,10 @@
+{
+  "name": "palindrome",
+  "version": "1.0.0",
+  "dependencies": {
+    
+  },
+  "scripts": {
+    "start": "concurrently \"cd server && npm install && npm start\" \"cd client && npm install && npm start\""
+  }
+}
