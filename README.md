@@ -16,23 +16,28 @@ The project is structured as following:
 
 ## How to build.
 There are 2 options for building current project:
-1. NPM Build:
+1. *NPM Build*:
 - Run `npm install -g concurrently`
 - Run `npm start`
 
 _or_
 
-2. Docker compose
+2. *Docker compose*
 - Run `docker-compose up`
 
 In both cases:
-- client will be served at http://localhost:3000
-- server will be served at http://localhost:3001
+- *client* will be served at http://localhost:3000
+- *server* will be served at http://localhost:3001
 
-> Note: Client is currently configured to use API from `http://api.thejs.ca/messages`, you will have to change API hosting to `localhost:3001/messages` in `clinet/src/constants.js` when you're running project locally. 
+> Note: 
+Client is currently configured to use API from `http://api.thejs.ca/messages`, you will have to change API hosting to `localhost:3001/messages` in `clinet/src/constants.js` when you're running project locally. 
 
 ## Docker + DigitalOcean
 The application is deployed to a Cloud Provider (DigitalOcean) using Docker and DigitalOcean Droplets. 
+
+## MongoDB 
+Database is hosted on mLab cloud MongoDB service. Connection url `mongodb://root:Palindrome1@ds125293.mlab.com:25293/palindrome` is stored in `variables.env` file which was committed for *demo purpouse* only. 
+In real world scenario this file would be added only on server hosting or configs would be defined in the hosting environment variables.  
 
 ## API Documentation
 Link to the documentation: https://alexandrursu.github.io/palindrome-swagger/
