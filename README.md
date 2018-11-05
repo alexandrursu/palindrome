@@ -18,7 +18,7 @@ The project is structured as following:
 There are 2 options for building current project:
 1. **NPM Build**:
 - Run `npm install -g concurrently` (helper package that allows to run multiple commands concurrently)
-- Run `npm start`
+- Run `npm start` please be patient it will take up to 2 minutes until all dependencies are installed
 
 _or_
 
