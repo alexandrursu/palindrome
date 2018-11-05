@@ -16,18 +16,18 @@ The project is structured as following:
 
 ## How to build.
 There are 2 options for building current project:
-1. *NPM Build*:
-- Run `npm install -g concurrently`
+1. **NPM Build**:
+- Run `npm install -g concurrently` (helper package that allows to run multiple commands concurrently)
 - Run `npm start`
 
 _or_
 
-2. *Docker compose*
+2. **Docker compose**
 - Run `docker-compose up`
 
 In both cases:
-- *client* will be served at http://localhost:3000
-- *server* will be served at http://localhost:3001
+- **client** will be served at http://localhost:3000
+- **server** will be served at http://localhost:3001
 
 > Note: 
 Client is currently configured to use API from `http://api.thejs.ca/messages`, you will have to change API hosting to `localhost:3001/messages` in `clinet/src/constants.js` when you're running project locally. 
