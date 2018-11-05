@@ -1,6 +1,5 @@
 ## Project Live DEMO
-- Project is available at: [http://159.89.182.50/](http://159.89.182.50/)
-- Project will be available soon at: [http://thejs.ca/](http://thejs.ca/) waiting for DNS to be updated as I just bought the domain name.
+- Project is available at: [http://thejs.ca/](http://thejs.ca/)
 
 ## Project Architecture.
 The project is structured as following:
